@@ -1,0 +1,96 @@
+
+.sidebar {
+    flex: 0.35;
+    background-color: rgb(243, 243, 243);
+    border-right: 1px solid rgb(187, 183, 183);
+}
+
+.sidebar__header {
+    display: flex;
+    justify-content: space-between;
+    /* border-right: 1px solid rgb(187, 183, 183); */
+    padding: 10px;
+    background-color: rgb(233, 231, 231);
+}
+
+.header__headerPanel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 10vw;
+}
+
+.header__headerPanel svg {
+    font-size: 18px;
+}
+
+
+.sidebar__search {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgb(187, 183, 183);
+    background-color: rgb(233, 231, 231);
+    height: 40px;
+    padding: 10px;
+}
+
+.sidebar__searchContainer {
+    display: flex;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    height: 35px;
+    border-radius: 20px;
+    width: 100%;
+    border: 0.1px solid rgb(187, 183, 183);
+}
+
+.sidebar__searchContainer input {
+    border: 0;
+    border-left: 10px;
+    outline: 0;
+    width: 80%;
+    
+}
+
+.sidebar__chats {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(247, 247, 247);
+    
+}
+
+.sidebar__chat {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgb(212, 210, 210);
+    padding: 10px;
+}
+
+.sidebar__chats :hover {
+    cursor: pointer;
+    background-color: rgb(196, 195, 195);
+}
+
+.sidebar__chatInfo {
+    margin-left: 15px;
+}
+
+.sidebar__chatInfo h2{
+    font-size: 16px;
+}
+
+.sidebar__chatInfo h3{
+    font-size: 16px;
+}
+
+.sidebar__chat>h2{
+    font-size: 25px;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+.sidebar__chat .MuiAvatar-circular {
+    width: 30px;
+    height: 30px;
+}
+
