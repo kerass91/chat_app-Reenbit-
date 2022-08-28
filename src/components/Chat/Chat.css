@@ -1,5 +1,5 @@
 .chat {
-    
+    position: relative;
     flex: 0.65;
     flex-direction: column;
     align-items: flex-start;
@@ -36,16 +36,16 @@
 }
 
 .chat__body {
-    
+    position: relative;
     flex: 1;
     padding: 25px 10px;
     overflow-y: auto;
+    border-bottom: 1px solid rgb(212, 210, 210);
 
 }
 
 .chat__body  .chat__message{
    position: relative;
-   background-color: white;
    width: fit-content;
    padding: 6px;
    border-radius:5px;
@@ -61,29 +61,41 @@
     font-weight: bold;
 }
 
-.chat__time{
+.chat__time {
     font-style: 10px;
+    font-style: italic;
     margin-left: auto;
+    color:rgb(63, 141, 141)
+    
 }
 
 .chat__reciever {
-    background-color: #fff;
+    background-color: rgba(11, 119, 243, 0.13);
+    margin-right: auto;
+}
+
+.chat__reciever2 {
+    background-color: rgba(80, 221, 226, 0.144);
     margin-left: auto;
 }
 
 .chat__footer {
     display: flex;
+   /*  position: absolute; */
     align-items: center;
     padding: 20px;
-    color: grey;
-   
-    
+    color: rgb(143, 138, 138);
+    background-color: rgb(206, 206, 206);
+    bottom: 0;
 }
 
 .chat__footer form {
-    margin-bottom: 50px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    background-color: #fff;
+    border-radius: 15px;
     flex: 1; 
-    margin-bottom: 10px;
 }
 
 .chat__footer form input[type='text'] {
@@ -91,6 +103,7 @@
     height: 40px;
     outline: 0;
     width: 100%;
+    
 }
 
 .chat__footer form input[type='submit'] {

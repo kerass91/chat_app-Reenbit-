@@ -8,7 +8,6 @@
 .sidebar__header {
     display: flex;
     justify-content: space-between;
-    /* border-right: 1px solid rgb(187, 183, 183); */
     padding: 10px;
     background-color: rgb(233, 231, 231);
 }
@@ -16,7 +15,7 @@
 .header__headerPanel {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     min-width: 10vw;
 }
 
@@ -42,6 +41,7 @@
     border-radius: 20px;
     width: 100%;
     border: 0.1px solid rgb(187, 183, 183);
+    padding-left: 10px;
 }
 
 .sidebar__searchContainer input {
@@ -49,6 +49,8 @@
     border-left: 10px;
     outline: 0;
     width: 80%;
+    padding-left: 10px;
+    
     
 }
 
@@ -61,9 +63,25 @@
 
 .sidebar__chat {
     display: flex;
+    position: relative;
     align-items: center;
     border-bottom: 1px solid rgb(212, 210, 210);
     padding: 10px;
+}
+
+.sidebar__chatOnline {
+    display: flex;
+    position: absolute;
+    color: green;
+    text-align: center;
+    justify-content: center;
+    right: 15px;
+    
+}
+
+.sidebar__chats a {
+    text-decoration: none;
+    color: black;
 }
 
 .sidebar__chats :hover {
@@ -75,12 +93,27 @@
     margin-left: 15px;
 }
 
+.sidebar__chatInfo_ind {
+    display: block;
+    position: absolute;
+    text-align: center;
+    justify-items: center;
+    color:white;
+    font-size: 10px;
+    left:30px;
+    top:10px;
+    width: 15px;
+    height: 15px;
+    background-color: red;
+    border-radius: 100%;
+}
+
 .sidebar__chatInfo h2{
     font-size: 16px;
 }
 
 .sidebar__chatInfo h3{
-    font-size: 16px;
+    font-size: 12px;
 }
 
 .sidebar__chat>h2{
