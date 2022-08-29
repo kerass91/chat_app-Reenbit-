@@ -23,10 +23,13 @@ const Login = () => {
 
   return (
     <div className="card">
-      <span className="card_sp"></span>
-      <h1>Sign in to account</h1>
-      <span className="card_sp"></span>
+
       {!loginStatus && (
+        <> 
+        <span className="card_sp"></span>
+        <h1>Sign in to account</h1>
+        <span className="card_sp"></span>
+         
         <GoogleLogin
           clientId="7205238352-ra6412jde9mau3uoqs5hrnlk5gj18bia.apps.googleusercontent.com"
           buttonText="Sing in with Google"
@@ -34,10 +37,11 @@ const Login = () => {
           onFailure={responseGoogle}
           cookiePolicy={"single_host_origin"}
         />
+        </> 
       )}
       {loginStatus && (
-        <div>
-          <span className="card_sp"></span>
+        <>
+         <h1>My Data</h1>
           <p>{name}</p>
           <p>{email}</p>
           <img src={url} alt={name} />
@@ -47,7 +51,7 @@ const Login = () => {
             buttonText="Logout"
             onLogoutSuccess={logout}
           />
-        </div>
+        </>
       )}
     </div>
   );

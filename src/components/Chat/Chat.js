@@ -7,7 +7,8 @@ import './Chat.css';
 import { useParams } from 'react-router-dom';
 import { db } from '../Sidebar/firebase';
 import { doc, onSnapshot, collection , addDoc, deleteDoc  } from "firebase/firestore";
-import Sidebar from '../Sidebar/Sidebar';
+/* import Sidebar from '../Sidebar/Sidebar'; */
+
 
 const Chat = () => {
 
@@ -47,14 +48,18 @@ const Chat = () => {
             message: input,
             time: new Date().toLocaleTimeString('en-US')})
         setInput('')
+        
+                
+            
+
 
     }
-    const handleDelete = (key) => {
+/*     const handleDelete = (key) => {
         if(key === roomId) {
             deleteDoc(collection('rooms', roomId, 'messeges'))
         }
         console.log(roomId)
-    }
+    } */
     return (
         <div className='chat'>
             <div className='chat__header'>

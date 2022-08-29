@@ -7,14 +7,15 @@ import './Sidebar.css';
 import SidebarChats from './SidebarChats';
 import {db} from './firebase';
 import { collection, getDocs } from 'firebase/firestore';
+import Login from '../Login/Login';
 
 const Sidebar = () => {
 
   const [rooms, setRooms] = useState([]);
-  const [contList, setContList] = useState('')
-  const [filteredList, setFilteredList] = useState([])
+ /*  const [contList, setContList] = useState('') */
+  const [filteredList, setFilteredList] = useState('')
 
- console.log((rooms.map((room)=> room.data.name)).filter(el => el.toLowerCase().includes((contList.toLowerCase()))))
+ console.log((rooms.map((room)=> room.data.name)).filter(el => el.toLowerCase().includes((filteredList.toLowerCase()))))
 
   
  /*   const filterCont =(cList, searchContact) => {
@@ -35,7 +36,6 @@ const Sidebar = () => {
   }, [contList])  */
 
   console.log(rooms)
-
 
 
   const getDb=()=>{
@@ -60,15 +60,12 @@ const Sidebar = () => {
  }, [rooms]);
 
 
-
-/*    console.log((rooms[0].data.name).toLowerCase()) */
- 
-
     return (
         <div className='sidebar'>
             <div className='sidebar__header'>
-                <Avatar/>
+                <Avatar src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Orlando_Bloom_Cannes_2013.jpg/200px-Orlando_Bloom_Cannes_2013.jpg'/>
                 <div className='header__headerPanel'>
+                  <div>{Login.name}</div>
                     <IconButton>
                       <LoginIcon/>  
                     </IconButton>
@@ -90,28 +87,34 @@ const Sidebar = () => {
                 </div>
             </div>
             <div className='sidebar__chats'>
-              {(rooms.map((room)=> room.data.name)).filter(el => el.toLowerCase().includes((filteredList.toLowerCase()))).map((newPerson) => (
-                <SidebarChats 
-                key={newPerson.id} 
-                id={newPerson.id} 
-                name={newPerson.data.name}
-                avatar={newPerson.data.avatar}
-                />
-              ))}
-{/*                 <SidebarChats addnewchat= {rooms}/> {
-                  rooms.map(room => {
+{/*               {(rooms.map((room)=> room.data.name)).filter(el => el.toLowerCase().includes((filteredList.toLowerCase())).map())} */}
+                <SidebarChats addnewchat= {rooms}/> 
+                {!filteredList? (
+                    rooms.map(room =>  {
+                      return <SidebarChats 
+                      key={room.id} 
+                      id={room.id} 
+                      name={room.data.name}
+                      avatar={room.data.avatar}
+                      status={room.data.status}
+                      />
+                    })
+                ):(
+           (rooms.map(room=> room.data.name).filter(el => el.toLowerCase().includes(filteredList.toLowerCase())).map((item) => {
                     return <SidebarChats 
-                    key={room.id} 
-                    id={room.id} 
-                    name={room.data.name}
-                    avatar={room.data.avatar}
+                    key={item.id} 
+                    id={item.id} 
+                    name={item.data.name}
+                    avatar={item.data.avatar}
+                    status={item.data.status}
                     />
-                  })
-                } */}
-
+                   })
+                ))
+              }    
             </div>
         </div>
     );
 };
 
 export default Sidebar;
+

@@ -69,10 +69,20 @@
     padding: 10px;
 }
 
-.sidebar__chatOnline {
+.sidebar__chatOnline_g {
     display: flex;
     position: absolute;
     color: green;
+    text-align: center;
+    justify-content: center;
+    right: 15px;
+    
+}
+
+.sidebar__chatOnline_r {
+    display: flex;
+    position: absolute;
+    color: rgb(230, 13, 13);
     text-align: center;
     justify-content: center;
     right: 15px;
