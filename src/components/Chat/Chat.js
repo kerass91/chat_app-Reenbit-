@@ -6,7 +6,7 @@ import SendIcon from '@mui/icons-material/Send';
 import './Chat.css';
 import { useParams } from 'react-router-dom';
 import { db } from '../Sidebar/firebase';
-import { doc, onSnapshot, collection , addDoc, deleteDoc  } from "firebase/firestore";
+import { doc, onSnapshot, collection , addDoc, deleteDoc, orderBy  } from "firebase/firestore";
 /* import Sidebar from '../Sidebar/Sidebar'; */
 
 
@@ -26,14 +26,30 @@ const Chat = () => {
                 setRoomImg(doc.data().avatar)
             });
 
-            onSnapshot(collection(db, 'rooms', roomId, 'messages'), (snapshot)=> {
+            onSnapshot(collection(db, 'rooms', roomId, 'messages'), orderBy('time', 'asc'), (snapshot)=> {
                 setMessages(snapshot.docs.map(doc=> doc.data()))
             });
 
-
-            
         }
     }, [roomId])
+
+
+    const getApiData = async () => {
+        const response = await fetch(
+          "https://api.chucknorris.io/jokes/random"
+        ).then((response) => response.json());
+        /* setTimeout(setMessages([...messages, response]), 5000); */
+        
+        const docChak= collection(db, 'rooms')
+        addDoc(collection(docChak, roomId, 'messages'), {
+        name:roomname,
+        message: response.value,
+        time: new Date().toLocaleTimeString('en-US')})
+        
+        // !!!
+    };
+    
+
 
    const sendMessage =(e)=> {
             e.preventDefault();
@@ -48,10 +64,7 @@ const Chat = () => {
             message: input,
             time: new Date().toLocaleTimeString('en-US')})
         setInput('')
-        
-                
-            
-
+        setTimeout(getApiData, 10000)
 
     }
 /*     const handleDelete = (key) => {
@@ -86,7 +99,7 @@ const Chat = () => {
                         <p className={message.name === roomname?'chat__message chat__reciever':'chat__message chat__reciever2'} >
                         <span className='chat__name'>{message.name}</span>
                         {message.message}
-                        <span className='chat__time'>  {new Date().toLocaleTimeString('en-US')}</span>
+                        <span className='chat__time'>{message.time}</span>
                     </p>
                     ))
                 }

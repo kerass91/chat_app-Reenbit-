@@ -6,8 +6,7 @@ import './Sidebar.css'
 import { collection, addDoc } from "firebase/firestore";
 import { db } from './firebase';
 import { Link } from 'react-router-dom';
-import * as EmailValidator from 'email-validator'
-/* import {Sidebar} from './Sidebar'; */
+
 
 const SidebarChats = ({id, name, addnewchat, avatar, status}) => {
 
@@ -26,24 +25,7 @@ const SidebarChats = ({id, name, addnewchat, avatar, status}) => {
         }
     }
 
-/*      {state
-        .filter((item) => item.data.age >= newa)
-        .map((newPerson) => (
-          <h1>{newPerson.data.name}</h1>
-        ))} */
     return (
-/* 
-        {
-            messages.map(message=>(
-                <p className={message.name === roomname?'chat__message chat__reciever':'chat__message chat__reciever2'} >
-                <span className='chat__name'>{message.name}</span>
-                {message.message}
-                <span className='chat__time'>  {new Date().toLocaleTimeString('en-US')}</span>
-            </p>
-            ))
-        } */
-        
-         /* name.toLowerCase().includes(searchName.toLowerCase())? */
                (!addnewchat ? (
             <Link to={`/room/${id}`}>
              <div className='sidebar__chat'>

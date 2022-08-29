@@ -90,25 +90,29 @@ const Sidebar = () => {
 {/*               {(rooms.map((room)=> room.data.name)).filter(el => el.toLowerCase().includes((filteredList.toLowerCase())).map())} */}
                 <SidebarChats addnewchat= {rooms}/> 
                 {!filteredList? (
-                    rooms.map(room =>  {
-                      return <SidebarChats 
+                    rooms.map(room =>  (
+                      <SidebarChats 
                       key={room.id} 
                       id={room.id} 
                       name={room.data.name}
                       avatar={room.data.avatar}
                       status={room.data.status}
                       />
-                    })
+                    ))
                 ):(
-           (rooms.map(room=> room.data.name).filter(el => el.toLowerCase().includes(filteredList.toLowerCase())).map((item) => {
-                    return <SidebarChats 
+           (rooms.map(room=> room.data.name).filter(el => el.toLowerCase().includes(filteredList.toLowerCase())).map((item) => (
+            <>
+                    <SidebarChats 
                     key={item.id} 
                     id={item.id} 
                     name={item.data.name}
                     avatar={item.data.avatar}
                     status={item.data.status}
                     />
-                   })
+            </>
+
+      
+           ))
                 ))
               }    
             </div>

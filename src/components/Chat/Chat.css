@@ -1,8 +1,9 @@
 .chat {
+    display: flex;
     position: relative;
     flex: 0.65;
     flex-direction: column;
-    align-items: flex-start;
+    /* align-items: flex-start; */
 }
 
 .chat .chat__header {
@@ -36,7 +37,9 @@
 }
 
 .chat__body {
+    
     position: relative;
+    height: 64vh;
     flex: 1;
     padding: 25px 10px;
     overflow-y: auto;
@@ -81,12 +84,10 @@
 
 .chat__footer {
     display: flex;
-   /*  position: absolute; */
-    align-items: center;
     padding: 20px;
     color: rgb(143, 138, 138);
     background-color: rgb(206, 206, 206);
-    bottom: 0;
+    
 }
 
 .chat__footer form {
