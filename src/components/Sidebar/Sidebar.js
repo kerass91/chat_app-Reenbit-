@@ -13,7 +13,7 @@ const Sidebar = () => {
 
   const [rooms, setRooms] = useState([]);
  /*  const [contList, setContList] = useState('') */
-  const [filteredList, setFilteredList] = useState('')
+  const [filteredList, setFilteredList] = useState('null')
 
  console.log((rooms.map((room)=> room.data.name)).filter(el => el.toLowerCase().includes((filteredList.toLowerCase()))))
 
@@ -34,8 +34,6 @@ const Sidebar = () => {
 
     return() => clearTimeout(Debounce);
   }, [contList])  */
-
-  console.log(rooms)
 
 
   const getDb=()=>{
@@ -67,7 +65,7 @@ const Sidebar = () => {
                 <div className='header__headerPanel'>
                   <div>{Login.name}</div>
                     <IconButton>
-                      <LoginIcon/>  
+                      <LoginIcon /* onClick={handleLogout} *//>  
                     </IconButton>
                     <IconButton>
                       <MoreVertIcon/>  
@@ -87,6 +85,7 @@ const Sidebar = () => {
                 </div>
             </div>
             <div className='sidebar__chats'>
+{/*             console.log((rooms.map((room)=> room.data.name)).filter(el => el.toLowerCase().includes((filteredList.toLowerCase())))) */}
 {/*               {(rooms.map((room)=> room.data.name)).filter(el => el.toLowerCase().includes((filteredList.toLowerCase())).map())} */}
                 <SidebarChats addnewchat= {rooms}/> 
                 {!filteredList? (

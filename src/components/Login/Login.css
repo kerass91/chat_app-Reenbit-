@@ -24,6 +24,13 @@
   margin: 10px;
 }
 
+.card_mail {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  justify-content: center;
+}
+
 .card_aut {
   display: block;
   background-color: rgba(128, 24, 24, 0.438);
